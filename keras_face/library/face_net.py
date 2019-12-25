@@ -1,4 +1,5 @@
 from keras import backend as K
+from keras.models import save_model
 
 K.set_image_data_format('channels_first')
 from keras_face.library.fr_utils import *
@@ -53,10 +54,17 @@ class FaceNet(object):
         self.model = None
 
     def load_model(self, model_dir_path):
+        print("loading faceRecoModel ...")
         self.model = faceRecoModel(input_shape=(3, 96, 96))
         print("Total Params:", self.model.count_params())
-        self.model.compile(optimizer='adam', loss=triplet_loss, metrics=['accuracy'])
+        # self.model.compile(optimizer='adam', loss=triplet_loss, metrics=['accuracy'])
         load_weights_from_FaceNet(self.model, model_dir_path)
+
+    def save_model(self, model_dir_path):
+        print("start to save model --")
+        save_model(self.model, model_dir_path)
+        print("save model finished --")
+
 
     def img_to_encoding(self, image_path):
         return img_to_encoding(image_path, self.model)

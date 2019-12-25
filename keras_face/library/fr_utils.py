@@ -136,8 +136,8 @@ def load_weights_from_FaceNet(FRmodel, model_dir_path=None):
     for name in weights:
         if FRmodel.get_layer(name) != None:
             FRmodel.get_layer(name).set_weights(weights_dict[name])
-        elif FRmodel.get_layer(name) != None:
-            FRmodel.get_layer(name).set_weights(weights_dict[name])
+            print("loading layer :" + name)
+
 
 def load_weights(model_dir_path=None):
     if model_dir_path is None:
@@ -171,6 +171,7 @@ def load_weights(model_dir_path=None):
             dense_b = genfromtxt(dirPath+'/dense_b.csv', delimiter=',', dtype=None)
             weights_dict[name] = [dense_w, dense_b]
 
+        print("loaded weight: " + name)
     return weights_dict
 
 
