@@ -4,7 +4,7 @@ K.set_image_data_format('channels_first')
 from keras_face.library.fr_utils import *
 from keras_face.library.inception_blocks_v2 import *
 
-np.set_printoptions(threshold=np.nan)
+np.set_printoptions(threshold=10)
 
 
 def triplet_loss(y_true, y_pred, alpha=0.2):
