@@ -25,7 +25,7 @@ def main():
     dist, is_valid = fnet.verify(image_dir_path + "/camera_0.jpg", "younes", database)
     print('camera_0.jpg is' + (' ' if is_valid else ' not ') + 'yournes')
     dist, is_valid = fnet.verify(image_dir_path + "/camera_2.jpg", "kian", database)
-    print('camera_0.jpg is' + (' ' if is_valid else ' not ') + 'yournes')
+    print('camera_2.jpg is' + (' ' if is_valid else ' not ') + 'kian')
     dist, identity = fnet.who_is_it(image_dir_path + "/camera_0.jpg", database)
     if identity is None:
         print('camera_0.jpg is not found in database')
